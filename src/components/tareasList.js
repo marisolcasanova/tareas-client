@@ -30,14 +30,14 @@ const [showForm, setShowForm] = useState(false);
  
 
     useEffect(() => {
-        fetch("http://localhost:3030/tareas")
+        fetch("http://ec2-18-219-98-174.us-east-2.compute.amazonaws.com:3030/tareas")
             .then((res) => res.json())
             .then((data) => setTareas(data.data))
             .catch((err) => console.log(`Error: ${err}`));
     }, []);
 
     const getTareas = () => {
-        fetch("http://localhost:3030/tareas")
+        fetch("http://ec2-18-219-98-174.us-east-2.compute.amazonaws.com:3030/tareas")
             .then((res) => res.json())
             .then((data) => setTareas(data.data))
             .then((err) => console.log(`Error: ${err}`));
@@ -45,7 +45,7 @@ const [showForm, setShowForm] = useState(false);
 
     const createTarea = (data) => {
         try {
-            fetch("http://localhost:3030/tareas", {
+            fetch("http://ec2-18-219-98-174.us-east-2.compute.amazonaws.com:3030/tareas", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const [showForm, setShowForm] = useState(false);
 
     const deleteTarea = (data) => {
         try {
-            fetch(`http://localhost:3030/tareas/${data}`, {
+            fetch(`http://ec2-18-219-98-174.us-east-2.compute.amazonaws.com:3030/tareas/${data}`, {
                 method: 'DELETE',
             })
             .then(response => response.json())
@@ -85,7 +85,7 @@ const [showForm, setShowForm] = useState(false);
 
     const updateTarea = (data) => {
         try {
-            fetch(`http://localhost:3030/tareas/${data._id}`, {
+            fetch(`http://ec2-18-219-98-174.us-east-2.compute.amazonaws.com:3030/tareas/${data._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
